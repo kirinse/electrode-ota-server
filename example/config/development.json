@@ -1,6 +1,7 @@
 {
   "plugins": {
     "electrode-ota-server-logger": {
+      "priority": 1,
       "options": {
         "level": "info"
       }
@@ -23,11 +24,10 @@
         "strategy": {
           "github-oauth": {
             "options": {
-              "isSecure": false,
-              "location":"http://localhost.walmart.com:9001",
-              "password": "LUaqMX6btxqKQ6fWiwt9PY7uCjVVpkKxfx0t2tSV",
-              "clientId": "4e71c4709e55261bd612",
-              "clientSecret": "f3d4ab9be03e0921ebd661980464c91785963e5c"
+              "isSecure": true,
+              "location":"https://ota.shuzicai.cn",
+              "clientId": "e18dadc4b47add872842",
+              "clientSecret": "c644abd39b96e6b28b41f6c39c396c33d9ee9293"
             }
           },
           "session": {

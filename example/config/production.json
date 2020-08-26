@@ -1,0 +1,69 @@
+{
+  "connection": {
+    "host": "localhost",
+    "port": 9001,
+    "compression": false
+  },
+  "server": {
+    "app": {
+      "electrode": true
+    }
+  },
+  "plugins": {
+    "electrode-ota-server-logger": {
+      "priority": 1,
+      "options": {
+        "level": "info"
+      }
+    },
+    "electrode-ota-server-dao-plugin": {
+      "module": "electrode-ota-server-dao-mariadb",
+      "priority": 4,
+      "options": {
+        "clusterConfig": {
+          "canRetry": true,
+          "defaultSelector": "ORDER",
+          "removeNodeErrorCount": 5,
+          "restoreNodeTimeout": 0
+        },
+        "poolConfigs": [
+          {
+            "host": "mysql",
+            "port": 3306,
+            "dialect": "mysql",
+            "database": "ota",
+            "user": "root",
+            "password": "1234%qwerT",
+            "debug": true
+          }
+        ]
+      }
+    },
+    "electrode-ota-server-fileservice": {
+      "options": {
+        "downloadUrl": "https://ota.shuzicai.cn/storagev2/"
+      }
+    },
+    "electrode-ota-server-auth": {
+      "options": {
+        "strategy": {
+          "github-oauth": {
+            "options": {
+              "password": "iO3k3eDFarnoL1SVC4jyb4vVW4dLE2xU",
+              "isSecure": true,
+              "location": "https://ota.shuzicai.cn",
+              "clientId": "e18dadc4b47add872842",
+              "clientSecret": "c644abd39b96e6b28b41f6c39c396c33d9ee9293"
+            }
+          },
+          "session": {
+            "options": {
+              "password": "tZgixSC0yMLbfhcnhdzyyArfQLtHXOHH",
+              "isSecure": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

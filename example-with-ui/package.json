@@ -9,6 +9,7 @@
   "description": "Example OTA Server",
   "dependencies": {
     "electrode-ota-server": "^4.7.2",
-    "electrode-ota-server-manager": "^4.7.2"
+    "electrode-ota-server-manager": "^4.7.2",
+    "electrode-ota-server-dao-mariadb": "^4.7.2"
   }
 }

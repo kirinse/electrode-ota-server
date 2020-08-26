@@ -1,16 +1,31 @@
 {
   "plugins": {
-    "electrode-ota-server-dao-cassandra": {
+    "electrode-ota-server-dao-plugin": {
+      "module": "electrode-ota-server-dao-mariadb",
+      "priority": 4,
       "options": {
-        "contactPoints": [
-          "localhost"
-        ],
-        "keyspace": "ota_db_2"
+        "clusterConfig": {
+          "canRetry": true,
+          "defaultSelector": "ORDER",
+          "removeNodeErrorCount": 5,
+          "restoreNodeTimeout": 0
+        },
+        "poolConfigs": [
+          {
+            "host": "192.168.0.155",
+            "port": 3307,
+            "dialect": "mysql",
+            "database": "ota",
+            "user": "root",
+            "password": "1234%qwerT",
+            "debug": true
+          }
+        ]
       }
     },
     "electrode-ota-server-fileservice-upload": {
       "options": {
-        "downloadUrl": "http://localhost.walmart.com:9001/storagev2/"
+        "downloadUrl": "http://localhost:9001/storagev2/"
       }
     },
     "electrode-ota-server-auth": {
@@ -19,10 +34,10 @@
           "github-oauth": {
             "options": {
               "isSecure": false,
-              "location": "http://localhost.walmart.com:9001",
+              "location": "http://localhost:9001",
               "password": "LUaqMX6btxqKQ6fWiwt9PY7uCjVVpkKxfx0t2tSV",
-              "clientId": "4e71c4709e55261bd612",
-              "clientSecret": "f3d4ab9be03e0921ebd661980464c91785963e5c"
+              "clientId": "e18dadc4b47add872842",
+              "clientSecret": "c644abd39b96e6b28b41f6c39c396c33d9ee9293"
             }
           },
           "session": {
